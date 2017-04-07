@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './AddGreeter.css';
+import './AddKeyValue.css';
 
-class AddGreeter extends Component {
+class AddKeyValue extends Component {
 	constructor(props) {
 		super(props);
 		this.state = { greetingName: ''};
@@ -18,17 +18,17 @@ class AddGreeter extends Component {
 
 	render() {
 		return (
-			<div className="AddGreeter">
+			<div className="AddKeyValue">
 				<input 
 					type="text" 
 					onChange={this.handleUpdate}
 					value={this.state.greetingName}
 				/>
 				&nbsp;&nbsp;
-				<button onClick={this.addGreeting} >Add</button>
+				<button onClick={this.addGreeting} >Add Item</button>
 			</div>
 		);
 	}
 }
 
-export default AddGreeter;
+export default AddKeyValue;

@@ -2,18 +2,18 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import renderer from 'react-test-renderer';
 
-import HelloWorld from './HelloWorld';
+import LevelKeyValue from './LevelKeyValue';
 
-describe(HelloWorld, () => {
+describe(LevelKeyValue, () => {
 	const name = 'Person';
 	const mockRemoveGreeting = jest.fn();
 	const component = shallow(
-		<HelloWorld name={name} removeGreeting={mockRemoveGreeting}/>
+		<LevelKeyValue name={name} removeGreeting={mockRemoveGreeting}/>
 	);
 
 	it('renders and matches our snapshot', () => {
 		const component = renderer.create(
-			<HelloWorld name="Person" />
+			<LevelKeyValue name="Person" />
 		);
 		const tree = component.toJSON();
 		expect(tree).toMatchSnapshot();

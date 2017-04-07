@@ -2,17 +2,17 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import renderer from 'react-test-renderer';
 
-import AddGreeter from './AddGreeter';
+import AddKeyValue from './AddKeyValue';
 
-describe(AddGreeter, () => {
+describe(AddKeyValue, () => {
   const mockAddGreeting = jest.fn();
   const component = shallow(
-    <AddGreeter addGreeting={mockAddGreeting}/>
+    <AddKeyValue addGreeting={mockAddGreeting}/>
   );
 
   it('renders and matches our snapshot', () => {
     const component = renderer.create(
-      <AddGreeter />
+      <AddKeyValue />
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

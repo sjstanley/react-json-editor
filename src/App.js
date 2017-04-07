@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import HelloWorldList from './HelloWorldList';
+import LevelList from './LevelList';
 
 
   
@@ -12,7 +12,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <HelloWorldList greetings={json.nameList}/>
+      <LevelList greetings={json.nameList}/>
 
     </div>
   );

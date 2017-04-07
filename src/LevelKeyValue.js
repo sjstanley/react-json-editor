@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './HelloWorld.css';
+import './LevelKeyValue.css';
 
-class HelloWorld extends Component {
+class LevelKeyValue extends Component {
 
 	constructor(props) {
 	  super(props);
@@ -27,10 +27,8 @@ class HelloWorld extends Component {
 
 	render() {
 		return (
-			<div className="HelloWorld">
-				{this.state.greeting} {this.props.name}!
-				<br/>
-			{/*	<button className="remove" onClick={this.removeGreeting}>Remove Me!</button> */}
+			<div className="LevelKeyValue">
+				Item {this.props.index} : {this.props.name}
 				<br/>
 				<input 
 					type="text" 
@@ -38,10 +36,10 @@ class HelloWorld extends Component {
 					value={this.state.modifiedValue}
 				/>
 				<button className="update" onClick={this.handleUpdateClick}>Update</button>
-			
+				<button className="remove" onClick={this.removeGreeting}>Remove</button> 
 			</div>
 		);
 	}
 }
 
-export default HelloWorld;
+export default LevelKeyValue;

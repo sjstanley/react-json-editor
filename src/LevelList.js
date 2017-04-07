@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import './HelloWorldList.css';
-import HelloWorld from './HelloWorld';
-import AddGreeter from './AddGreeter';
+import './LevelList.css';
+import LevelKeyValue from './LevelKeyValue';
+import AddKeyValue from './AddKeyValue';
 
-class HelloWorldList extends Component {
+class LevelList extends Component {
 
 	constructor(props) {
 		super(props);
@@ -16,9 +16,10 @@ class HelloWorldList extends Component {
 
 
 	renderGreetings() {
-		return this.state.greetings.map(name => (
-			<HelloWorld 
-				key={name} 
+		return this.state.greetings.map((name, index) => (
+			<LevelKeyValue 
+				key={index} 
+				index={index}
 				name={name}
 				removeGreeting={this.removeGreeting}
 				updateGreeting={this.updateGreeting}
@@ -51,15 +52,15 @@ class HelloWorldList extends Component {
 	render() {
 		return (
 
-			<div className="HelloWorldList">
+			<div className="LevelList">
 				<pre>{JSON.stringify(this.state, null, '  ')}</pre>
-				<AddGreeter 
+				{this.renderGreetings()}
+				<AddKeyValue 
 					addGreeting={this.addGreeting}
 				 />
-				{this.renderGreetings()}
 			</div>
 		);
 	}
 }
 
-export default HelloWorldList;
+export default LevelList;
