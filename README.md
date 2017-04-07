@@ -16,6 +16,5 @@ The array object is hardcoded and contains 3 items.  You can update, remove, and
 ### TODO
 
 - Accept input from a json file
-- Handle objects
 - Handle all data types (string, number, object, array, boolean, or null)
 - Handle nested objects
