@@ -5,30 +5,30 @@ class LevelKeyValue extends Component {
 
 	constructor(props) {
 	  super(props);
-	  this.state={ greeting: 'Hello', modifiedValue: '' };
-	  this.removeGreeting=this.removeGreeting.bind(this);
+	  this.state={ listObject: '', modifiedValue: '' };
+	  this.removeKeyValue = this.removeKeyValue.bind(this);
 	  this.handleUpdate = this.handleUpdate.bind(this);
-	  this.handleUpdateClick=this.handleUpdateClick.bind(this);
+	  this.handleUpdateClick = this.handleUpdateClick.bind(this);
 
 	}
 
-	removeGreeting() {
-		this.props.removeGreeting(this.props.name);
+	removeKeyValue() {
+		this.props.removeKeyValue(this.props.value);
 	}
 
 	handleUpdate(event) {
-		this.setState({ greeting: 'Hello', modifiedValue: event.target.value });
+		this.setState({ listObject: '', modifiedValue: event.target.value });
 	}
 	handleUpdateClick(event) {
-		this.props.updateGreeting(this.props.name, this.state.modifiedValue);
-		this.setState({ greeting: 'Hello', modifiedValue: '' });
+		this.props.updateKeyValue(this.props.value, this.state.modifiedValue);
+		this.setState({ listObject: '', modifiedValue: '' });
 	}
 
 
 	render() {
 		return (
 			<div className="LevelKeyValue">
-				Item {this.props.index} : {this.props.name}
+				Item {this.props.index} : {this.props.value}
 				<br/>
 				<input 
 					type="text" 
@@ -36,7 +36,7 @@ class LevelKeyValue extends Component {
 					value={this.state.modifiedValue}
 				/>
 				<button className="update" onClick={this.handleUpdateClick}>Update</button>
-				<button className="remove" onClick={this.removeGreeting}>Remove</button> 
+				<button className="remove" onClick={this.removeKeyValue}>Remove</button> 
 			</div>
 		);
 	}

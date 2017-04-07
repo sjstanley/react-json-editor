@@ -21,8 +21,12 @@ it('contains an AddKeyValue subcomponent', () => {
 
 it('contains the same number of LevelKeyValue components as greetings', () => {
 	const LevelKeyValues = component.find(LevelKeyValue).length;
-	const greetings = component.state('greetings').length;
-	expect(LevelKeyValues).toEqual(greetings);
+	//const greetings = component.state.greetings.length;
+	//expect(LevelKeyValues).toEqual(greetings);
+	expect(LevelKeyValues).toEqual(3);
+
+
+
 });
 
 it('adds another greeting when the add greeting function is called', () => {

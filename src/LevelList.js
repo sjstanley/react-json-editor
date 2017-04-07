@@ -7,45 +7,45 @@ class LevelList extends Component {
 
 	constructor(props) {
 		super(props);
-		//this.state = { greetings: ['Jim', 'Sally', 'Bender']};
-		this.state = {greetings: this.props.greetings};
-		this.addGreeting = this.addGreeting.bind(this);
-		this.removeGreeting = this.removeGreeting.bind(this);
-		this.updateGreeting = this.updateGreeting.bind(this);
+		this.state = {listObject: this.props.listObject};
+		this.addKeyValue = this.addKeyValue.bind(this);
+		this.removeKeyValue = this.removeKeyValue.bind(this);
+		this.updateKeyValue = this.updateKeyValue.bind(this);
 	}
 
 
-	renderGreetings() {
-		return this.state.greetings.map((name, index) => (
-			<LevelKeyValue 
-				key={index} 
-				index={index}
-				name={name}
-				removeGreeting={this.removeGreeting}
-				updateGreeting={this.updateGreeting}
-				restoreOriginal={this.restoreOriginal}
-			/>
-		));
+	renderKeyValuePairs() {
+		if (this.state.listObject) {
+			return this.state.listObject.map((value, index) => (
+				<LevelKeyValue 
+					key={index} 
+					index={index}
+					value={value}
+					removeKeyValue={this.removeKeyValue}
+					updateKeyValue={this.updateKeyValue}
+				/>
+			));
+		}	
 	}
 
-	addGreeting(newName) {
-		this.setState({greetings: [...this.state.greetings, newName] });
+	addKeyValue(newValue) {
+		this.setState({listObject: [...this.state.listObject, newValue] });
 	}
-	removeGreeting(removeName){
-		const filteredGreetings = this.state.greetings.filter(name => {
-			return name !== removeName;});
+	removeKeyValue(removeValue){
+		const filteredKeyValuePairs = this.state.listObject.filter(value => {
+			return value !== removeValue;});
 		
-		this.setState({ greetings: filteredGreetings });
+		this.setState({ listObject: filteredKeyValuePairs });
 	}
-	updateGreeting(originalName, changedName) {
-		const changedGreetings = this.state.greetings 
+	updateKeyValue(originalValue, changedValue) {
+		const changedKeyValuePairs = this.state.listObject 
 	
-		for (var k = 0; k < changedGreetings.length; k++ ) {
-			if (originalName === changedGreetings[k]) {
-				changedGreetings[k] = changedName
+		for (var k = 0; k < changedKeyValuePairs.length; k++ ) {
+			if (originalValue === changedKeyValuePairs[k]) {
+				changedKeyValuePairs[k] = changedValue
 			}
 		}
-		this.setState({greetings: changedGreetings});
+		this.setState({listObject: changedKeyValuePairs});
 	}
 	
 
@@ -53,10 +53,11 @@ class LevelList extends Component {
 		return (
 
 			<div className="LevelList">
-				<pre>{JSON.stringify(this.state, null, '  ')}</pre>
-				{this.renderGreetings()}
+				<pre>listObject: </pre>
+				<pre>{JSON.stringify(this.state.listObject, null, '  ')}</pre>
+				{this.renderKeyValuePairs()}
 				<AddKeyValue 
-					addGreeting={this.addGreeting}
+					addKeyValue={this.addKeyValue}
 				 />
 			</div>
 		);

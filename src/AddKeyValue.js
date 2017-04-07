@@ -4,16 +4,16 @@ import './AddKeyValue.css';
 class AddKeyValue extends Component {
 	constructor(props) {
 		super(props);
-		this.state = { greetingName: ''};
+		this.state = { value: ''};
 		this.handleUpdate = this.handleUpdate.bind(this);
-		this.addGreeting = this.addGreeting.bind(this);
+		this.addKeyValue = this.addKeyValue.bind(this);
 	}
 	handleUpdate(event) {
-		this.setState({ greetingName: event.target.value });
+		this.setState({ value: event.target.value });
 	}
-	addGreeting() {
-		this.props.addGreeting(this.state.greetingName);
-		this.setState({ greetingName: '' });
+	addKeyValue() {
+		this.props.addKeyValue(this.state.value);
+		this.setState({ value: '' });
 	}
 
 	render() {
@@ -22,10 +22,10 @@ class AddKeyValue extends Component {
 				<input 
 					type="text" 
 					onChange={this.handleUpdate}
-					value={this.state.greetingName}
+					value={this.state.value}
 				/>
 				&nbsp;&nbsp;
-				<button onClick={this.addGreeting} >Add Item</button>
+				<button onClick={this.addKeyValue} >Add Item</button>
 			</div>
 		);
 	}

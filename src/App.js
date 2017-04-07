@@ -12,7 +12,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <LevelList greetings={json.nameList}/>
+      <LevelList listObject={json.nameList}/>
 
     </div>
   );
