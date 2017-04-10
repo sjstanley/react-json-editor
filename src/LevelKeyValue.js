@@ -5,30 +5,37 @@ class LevelKeyValue extends Component {
 
 	constructor(props) {
 	  super(props);
-	  this.state={ listObject: '', modifiedValue: '' };
-	  this.removeKeyValue = this.removeKeyValue.bind(this);
+	  this.state={ modifiedValue: '' };
+	  this.handleRemoveKeyValue = this.handleRemoveKeyValue.bind(this);
 	  this.handleUpdate = this.handleUpdate.bind(this);
 	  this.handleUpdateClick = this.handleUpdateClick.bind(this);
 
 	}
 
-	removeKeyValue() {
-		this.props.removeKeyValue(this.props.value);
+	handleRemoveKeyValue() {
+		console.log(this.props.index, this.props.value);
+		this.props.removeKeyValue(this.props.index, this.props.value);
+		//this.setState({ modifiedValue: '' });
 	}
 
 	handleUpdate(event) {
-		this.setState({ listObject: '', modifiedValue: event.target.value });
+		this.setState({ modifiedValue: event.target.value });
 	}
 	handleUpdateClick(event) {
 		this.props.updateKeyValue(this.props.value, this.state.modifiedValue);
-		this.setState({ listObject: '', modifiedValue: '' });
+		this.setState({ modifiedValue: '' });
 	}
 
 
 	render() {
+		var displayValue = this.props.value;
+		if (displayValue === null) {
+			displayValue = 'null'
+		}
+
 		return (
 			<div className="LevelKeyValue">
-				Item {this.props.index} : {this.props.value}
+				{this.props.index} : {displayValue}
 				<br/>
 				<input 
 					type="text" 
@@ -36,7 +43,7 @@ class LevelKeyValue extends Component {
 					value={this.state.modifiedValue}
 				/>
 				<button className="update" onClick={this.handleUpdateClick}>Update</button>
-				<button className="remove" onClick={this.removeKeyValue}>Remove</button> 
+				<button className="remove" onClick={this.handleRemoveKeyValue}>Remove</button> 
 			</div>
 		);
 	}

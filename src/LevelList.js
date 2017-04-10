@@ -29,12 +29,16 @@ class LevelList extends Component {
 	}
 
 	addKeyValue(newValue) {
+		if (newValue === '') {
+			newValue = null;
+		}
 		this.setState({listObject: [...this.state.listObject, newValue] });
 	}
-	removeKeyValue(removeValue){
-		const filteredKeyValuePairs = this.state.listObject.filter(value => {
-			return value !== removeValue;});
-		
+	removeKeyValue(removeIndex, removeValue){
+		// const filteredKeyValuePairs = this.state.listObject.filter(value => {
+		// 	return value !== removeValue;});
+		const filteredKeyValuePairs = this.state.listObject
+		filteredKeyValuePairs.splice(removeIndex, 1);
 		this.setState({ listObject: filteredKeyValuePairs });
 	}
 	updateKeyValue(originalValue, changedValue) {
@@ -53,7 +57,7 @@ class LevelList extends Component {
 		return (
 
 			<div className="LevelList">
-				<pre>listObject: </pre>
+				<pre>list: </pre>
 				<pre>{JSON.stringify(this.state.listObject, null, '  ')}</pre>
 				{this.renderKeyValuePairs()}
 				<AddKeyValue 

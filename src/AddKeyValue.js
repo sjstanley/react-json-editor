@@ -25,7 +25,7 @@ class AddKeyValue extends Component {
 					value={this.state.value}
 				/>
 				&nbsp;&nbsp;
-				<button onClick={this.addKeyValue} >Add Item</button>
+				<button onClick={this.addKeyValue} >Add</button>
 			</div>
 		);
 	}
